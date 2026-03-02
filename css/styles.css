@@ -1,0 +1,29 @@
+/* Estilos personalizados */
+
+body {
+    background-color: #f8f9fa; /* Un gris muy clarito de fondo */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* El contenedor del dibujo (Canvas) */
+#canvas-container {
+    background-color: white;
+    border: 2px solid #343a40;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: block;
+    margin: 20px auto;
+}
+
+/* Para que el Navbar resalte un poco más */
+.navbar {
+    box-shadow: 0 2px 4px rgba(112, 12, 12, 0.1);
+}
+
+/* Ajuste para la imagen de la derecha */
+.img-profile {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.2));
+}
