@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ctx.fill();
     ctx.closePath();
 
-    // --- DIBUJAR EL PLANETA CON ANILLOS (La parte difícil) ---
+    // --- DIBUJAR EL PLANETA CON ANILLOS ---
     // Anillos (Aros finos)
     ctx.strokeStyle = "#87ceeb"; // Azul cielo claro
     ctx.lineWidth = 2;
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ctx.fillStyle = "#8a6db3"; // Color base
     ctx.fillRect(230, 350, 30, 20);
 
-    // --- DIBUJAR VEHÍCULO VOLADOR (Warthog/Pelican estilizado) ---
+    // --- DIBUJAR VEHÍCULO VOLADOR (Pelican estilizado) ---
     ctx.fillStyle = "#a9a9a9"; // Gris metálico
     // Cuerpo principal
     ctx.beginPath();
@@ -100,22 +100,80 @@ document.addEventListener("DOMContentLoaded", function() {
     ctx.fillRect(250, 260, 20, 10);
     ctx.fillRect(350, 260, 15, 10);
 
-    // --- DIBUJAR AL JEFE MAESTRO (Master Chief) ---
+    // --- DIBUJAR AL JEFE MAESTRO (Master Chief) - VERSIÓN Spartan ---
+    // Posición base
+    const spartanX = 330;
+    const spartanY = 320;
+
+    // 1. PIERNAS
+    ctx.fillStyle = "#3a5f18"; // Verde armadura oscuro
+    // Pierna izquierda
+    ctx.fillRect(spartanX - 6, spartanY + 30, 8, 20);
+    // Pierna derecha
+    ctx.fillRect(spartanX + 4, spartanY + 30, 8, 20);
+    // Botas (Detalle negro)
+    ctx.fillStyle = "#1a1a1a";
+    ctx.fillRect(spartanX - 7, spartanY + 48, 10, 5);
+    ctx.fillRect(spartanX + 3, spartanY + 48, 10, 5);
+
+    // 2. TORSO Y ARMADURA
     ctx.fillStyle = "#4a6f28"; // Verde armadura UNSC
-    // Cuerpo/Torso
-    ctx.fillRect(320, 320, 20, 50);
-    // Cabeza/Casco
-    ctx.fillStyle = "#3a5f18"; // Tono más oscuro
+    // Pecho/Abdomen
     ctx.beginPath();
-    ctx.arc(330, 315, 8, 0, Math.PI * 2);
+    ctx.moveTo(spartanX - 10, spartanY + 5); // Hombro izq
+    ctx.lineTo(spartanX + 10, spartanY + 5); // Hombro der
+    ctx.lineTo(spartanX + 8, spartanY + 30); // Cintura der
+    ctx.lineTo(spartanX - 8, spartanY + 30); // Cintura izq
+    ctx.closePath();
+    ctx.fill();
+    
+    // Hombreras
+    ctx.beginPath();
+    ctx.arc(spartanX - 10, spartanY + 8, 5, 0, Math.PI * 2); // Hombro izq
+    ctx.arc(spartanX + 10, spartanY + 8, 5, 0, Math.PI * 2); // Hombro der
     ctx.fill();
     ctx.closePath();
-    // Visor dorado
+
+    // 3. BRAZOS
+    ctx.fillStyle = "#3a5f18"; // Verde oscuro
+    // Brazo izquierdo (Sosteniendo el arma)
+    ctx.fillRect(spartanX - 14, spartanY + 10, 6, 20);
+    // Brazo derecho (Sosteniendo el arma)
+    ctx.fillRect(spartanX + 8, spartanY + 10, 6, 20);
+
+    // 4. CABEZA Y CASCO
+    ctx.fillStyle = "#4a6f28"; // Verde base
+    // Forma del casco (No es un círculo perfecto)
+    ctx.beginPath();
+    ctx.ellipse(spartanX, spartanY, 10, 12, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.closePath();
+    
+    // Visor dorado (Estilizado)
     ctx.fillStyle = "#d4af37"; // Dorado metálico
-    ctx.fillRect(326, 312, 8, 4);
-    // Arma (Rifle de asalto)
-    ctx.fillStyle = "#333"; // Negro/gris oscuro
-    ctx.fillRect(330, 335, 25, 5);
+    ctx.beginPath();
+    ctx.moveTo(spartanX - 6, spartanY - 3);
+    ctx.lineTo(spartanX + 6, spartanY - 3);
+    ctx.lineTo(spartanX + 4, spartanY + 3);
+    ctx.lineTo(spartanX - 4, spartanY + 3);
+    ctx.closePath();
+    ctx.fill();
+    
+    // Detalle negro en la mandíbula del casco
+    ctx.fillStyle = "#1a1a1a";
+    ctx.fillRect(spartanX - 5, spartanY + 6, 10, 3);
+
+    // 5. ARMA (Rifle de Asalto MA5D)
+    ctx.fillStyle = "#333"; // Gris oscuro/Negro
+    // Cuerpo del arma
+    ctx.fillRect(spartanX - 5, spartanY + 18, 30, 6);
+    // Culata y mira
+    ctx.fillRect(spartanX + 15, spartanY + 15, 8, 4);
+    ctx.fillRect(spartanX + 22, spartanY + 18, 5, 3); // Cañón
+
+    // 6. DETALLE DE MOCHILA/PROPULSOR
+    ctx.fillStyle = "#3a5f18";
+    ctx.fillRect(spartanX - 8, spartanY + 5, 16, 15);
 
     // --- DIBUJAR CAJAS/COBERTURA ---
     ctx.fillStyle = "#8b4513"; // Marrón madera/metal
