@@ -1,35 +1,58 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Buscamos el canvas con el ID correcto
+window.onload = function() {
     const canvas = document.getElementById('canvasArt');
-    
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
 
-        // 1. Limpiar el fondo (Color blanco)
-        ctx.fillStyle = "#ffffff";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // 1. FONDO ESPACIAL
+    ctx.fillStyle = "#05050a";
+    ctx.fillRect(0, 0, 400, 400);
 
-        // 2. Dibujar un rectángulo azul (Sombra de ejemplo)
-        ctx.fillStyle = "#0d6efd";
-        ctx.fillRect(50, 50, 300, 300);
-
-        // 3. Dibujar un círculo en el centro
-        ctx.beginPath();
-        ctx.arc(200, 200, 80, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255, 255, 255, 0.8)"; // Blanco con transparencia
-        ctx.fill();
-        ctx.lineWidth = 5;
-        ctx.strokeStyle = "#ffc107"; // Amarillo de Bootstrap
-        ctx.stroke();
-
-        // 4. Texto de confirmación
-        ctx.font = "bold 20px Arial";
-        ctx.fillStyle = "#333";
-        ctx.textAlign = "center";
-        ctx.fillText("Proyecto Canvas Listo", 200, 380);
-
-        console.log("¡Canvas dibujado con éxito!");
-    } else {
-        console.error("Error: No se encontró el canvas con el ID 'canvasArt'");
+    // Estrellas
+    ctx.fillStyle = "#ffffff";
+    for (let i = 0; i < 60; i++) {
+        ctx.globalAlpha = Math.random();
+        ctx.fillRect(Math.random() * 400, Math.random() * 250, 1.5, 1.5);
     }
-});
+    ctx.globalAlpha = 1.0;
+
+    // 2. EL PLANETA
+    let radial = ctx.createRadialGradient(200, 140, 15, 200, 140, 85);
+    radial.addColorStop(0, "#2c3e50");
+    radial.addColorStop(1, "#000000");
+    
+    ctx.beginPath();
+    ctx.arc(200, 140, 85, 0, Math.PI * 2);
+    ctx.fillStyle = radial;
+    ctx.fill();
+
+    // 3. ANILLO DE HALO
+    ctx.strokeStyle = "rgba(0, 212, 255, 0.5)";
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.ellipse(200, 140, 190, 50, Math.PI / 15, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // 4. TERRENO (Montañas)
+    ctx.fillStyle = "#161b22";
+    ctx.beginPath();
+    ctx.moveTo(0, 320);
+    ctx.lineTo(80, 250);
+    ctx.lineTo(160, 300);
+    ctx.lineTo(260, 240);
+    ctx.lineTo(400, 310);
+    ctx.lineTo(400, 400);
+    ctx.lineTo(0, 400);
+    ctx.fill();
+
+    // 5. MASTER CHIEF
+    const mx = 320, my = 315;
+    ctx.fillStyle = "#3e4e2b"; // Verde armadura
+    ctx.fillRect(mx, my, 20, 35); // Cuerpo
+    ctx.beginPath();
+    ctx.arc(mx + 10, my - 8, 9, 0, Math.PI * 2); // Casco
+    ctx.fill();
+    ctx.fillStyle = "#d4ac0d"; // Visor dorado
+    ctx.fillRect(mx + 4, my - 10, 12, 5);
+
+    console.log("¡Dibujo de Halo listo, JuanCamotes!");
+};
