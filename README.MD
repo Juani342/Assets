@@ -1,7 +1,10 @@
 # 🎮 Proyecto Canvas API - Halo Edition
 ### Estudiante: **JuanCamotes** 🚀
-### Ingeniería de Sistemas - Examen Final
-
+### Ingeniería de Sistemas - Examen Final}
+## 🔗 Enlaces del Proyecto
+## 🔗 Enlaces del Proyecto
+* **Repositorio de Código (GitHub):** [https://github.com/Juani342/Assets](https://github.com/Juani342/Assets)
+* **Sitio Web en Vivo (GitHub Pages):** [https://juani342.github.io/Assets/](https://juani342.github.io/Assets/)
 ---
 
 ## 📝 Descripción
