@@ -41,14 +41,10 @@ document.addEventListener("DOMContentLoaded", function() {
     ctx.ellipse(200, 140, 160, 40, 0, 0, Math.PI * 2);
     ctx.stroke();
 
-    // El planeta central (Tierra/Halo)
+    // El planeta central (Tierra/Halo) - AHORA 100% PLANO Y 2D
     ctx.beginPath();
     ctx.arc(200, 140, 80, 0, Math.PI * 2);
-    // Gradiente para el planeta
-    let gradPlaneta = ctx.createRadialGradient(200, 140, 20, 200, 140, 80);
-    gradPlaneta.addColorStop(0, "#4a6bbf"); // Centro más claro
-    gradPlaneta.addColorStop(1, "#1c2a4d"); // Borde oscuro
-    ctx.fillStyle = gradPlaneta;
+    ctx.fillStyle = "#1c2a4d"; // Azul sólido y plano (el color oscuro del borde anterior)
     ctx.fill();
     ctx.closePath();
 
